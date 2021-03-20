@@ -406,7 +406,7 @@ def tiles64(points):
     k=0
     for i in range(n):
         for j in range(n):
-            res[k] = [ar[i,j][0], ar[i,j][1], ar[i+1,j+1][0], ar[i+1,j+1][1]]
+            res[k] = [ar[i,j][0], ar[i+1,j+1][0],ar[i,j][1], ar[i+1,j+1][1]]
             k+=1
     return res
 
@@ -414,8 +414,7 @@ def tiles64(points):
 
 
 
-def inference(img_path):
-    img = loadImage(img_path)
+def inference(img):
     M, ideal_grid, grid_next, grid_good, spts = findChessboard(img)
     # View
     if M is not None:
@@ -431,9 +430,10 @@ def inference(img_path):
 
 
 if __name__=='__main__':
-    img_path = 'input/31.jpg'
+    img = loadImage(img_path)
+    img_path = 'dataset/4.jpg'
     tiles = inference(img_path)
-    print(tiles)
+    print(len(tiles))
     img = loadImage(img_path)
     plt.imshow(img, cmap='Greys_r');
     # axs = plt.axis()
