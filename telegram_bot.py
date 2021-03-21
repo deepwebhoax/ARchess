@@ -38,16 +38,16 @@ def send_ARed_photo(message):
         modifiedImage = augmentReality(filename)
         
         # getting image bytes
-        # buf = BytesIO()
-        # img.save(buf, 'jpeg')
-        # buf.seek(0)
-        # image_bytes = buf.read()
-        # buf.close()
+        buf = BytesIO()
+        modifiedImage.save(buf, 'jpeg')
+        buf.seek(0)
+        image_bytes = buf.read()
+        buf.close()
 
         
 
 
-        bot.send_photo(message.from_user.id, modifiedImage)
+        bot.send_photo(message.from_user.id, image_bytes)
     except Exception as e:
         print(e)
 

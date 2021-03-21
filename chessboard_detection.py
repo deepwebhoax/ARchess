@@ -267,7 +267,7 @@ def loadImage(filepath):
     img_width, img_height = img_orig.size
 
     # Resize
-    aspect_ratio = min(550.0/img_width, 550.0/img_height)
+    aspect_ratio = min(550./img_width, 550./img_height)
     new_width, new_height = ((np.array(img_orig.size) * aspect_ratio)).astype(int)
     img = img_orig.resize((new_width,new_height), resample=Image.BILINEAR)
     img = img.convert('L') # grayscale
@@ -432,13 +432,12 @@ def inference(img, view8x8=False):
 
 
 if __name__=='__main__':
-    img = loadImage(img_path)
     img_path = 'dataset/4.jpg'
-    tiles = inference(img_path)
-    print(len(tiles))
     img = loadImage(img_path)
+    tiles = inference(img)
+
     plt.imshow(img, cmap='Greys_r');
-    # axs = plt.axis()
-    plt.plot(tiles[:,2], tiles[:,3], 'ro')
-    # plt.axis(axs)
+
+    plt.plot(tiles[:,1], tiles[:,3], 'ro')
+    plt.plot(tiles[:,0], tiles[:,2], 'ro')
     plt.show()

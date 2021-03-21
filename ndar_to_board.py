@@ -174,16 +174,10 @@ RealPieces = {"whitePawn":'P',
     'blackKnight':'n',
     'blackRook':'r',
     'blackQueen':'q',
-    'blackKing':'k'
-    'empty':'e'}
+    'blackKing':'k'}
 
 
-
-def main():
-    # board = chess.Board()
-    
-
-    ExampleArr=np.array([ ['blackRook', 'blackKnight',  'blackBishop',  'blackQueen',  'blackKing',  'blackBishop',  'blackKnight',  'blackRook'],
+ExampleArr=np.array([ ['blackRook', 'blackKnight',  'blackBishop',  'blackQueen',  'blackKing',  'blackBishop',  'blackKnight',  'blackRook'],
                         ['blackPawn', 'blackPawn',  5.0,  'blackPawn',  'blackPawn',  'blackPawn',  'blackPawn',  'blackPawn'],
                         [1.0,  1.0,  'blackPawn',  3.0,  3.0,  2.0,  1.0,  1.0],
                         [0.5,  0.5,  1.0,  2.5,  2.5,  1.0,  0.5,  0.5],
@@ -191,6 +185,11 @@ def main():
                         [0.5, -0.5, "whitePawn",  "whitePawn",  0.0, -1.0, -0.5,  0.5],
                         ["whitePawn",  "whitePawn", 0,  0, "whitePawn",  "whitePawn",  "whitePawn",  "whitePawn"],
                         ['whiteRook',  'whiteKnight',  'whiteBishop', 'whiteQueen',  'whiteKing',  'whiteBishop',  'whiteKnight',  'whiteRook'] ])
+def main():
+    # board = chess.Board()
+    
+
+    
 
     board = ndarr_to_board(RealPieces,ExampleArr)
     print(board)
