@@ -267,7 +267,7 @@ def loadImage(filepath):
     img_width, img_height = img_orig.size
 
     # Resize
-    aspect_ratio = min(500.0/img_width, 500.0/img_height)
+    aspect_ratio = min(550.0/img_width, 550.0/img_height)
     new_width, new_height = ((np.array(img_orig.size) * aspect_ratio)).astype(int)
     img = img_orig.resize((new_width,new_height), resample=Image.BILINEAR)
     img = img.convert('L') # grayscale
@@ -376,7 +376,7 @@ def findChessboard(img, min_pts_needed=15, max_pts_needed=25):
         return None, None, None, None, None
 
 
-def tiles64(points):
+def tiles64(points, view8x8=False):
     ar = np.zeros((9,9, 2))
     n = 8
     # mapping 49 dots in the center of 9x9 dot board
@@ -401,6 +401,8 @@ def tiles64(points):
     ar[n][0] = ar[n-1][0]-(ar[n-2][0]-ar[n-1][0])
     ar[0][n] = ar[0][n-1]-(ar[0][n-2]-ar[0][n-1])
 
+    if view8x8:
+        return res
     # transform to 64x4
     res = np.empty((64,4))
     k=0
@@ -414,7 +416,7 @@ def tiles64(points):
 
 
 
-def inference(img):
+def inference(img, view8x8=False):
     M, ideal_grid, grid_next, grid_good, spts = findChessboard(img)
     # View
     if M is not None:
@@ -424,7 +426,7 @@ def inference(img):
         best_lines_x, best_lines_y = getBestLines(img_warp)
 
     xy_unwarp = getUnwarpedPoints(best_lines_x, best_lines_y, M)
-    res = tiles64(xy_unwarp)
+    res = tiles64(xy_unwarp, view8x8)
     return res
 
 
