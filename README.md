@@ -29,7 +29,15 @@ src: [chessboard detection](https://github.com/Elucidation/ChessboardDetect/blob
 ![](images/Picture4.png)
 
 ## Magnificent visualisations
-  Our goal was to visualise the best move predicted by our recommendation algorithm. Some dots and lines (powered by sciimage).
+  Our goal was to visualise the best move predicted by our recommendation algorithm. (powered by sciimage).
 
 
-## 
+## Credits
+Me
+
+[Rodion Bukhanevich](https://github.com/Rodionbukhanevych11)
+
+[Olha Revenko](https://github.com/OlhaRevenko)
+
+[Maksym](https://github.com/Greazy)
+
