@@ -8,7 +8,7 @@ Classic task in computer vision. Code souces below.
 
 src: [chessboard detection](https://github.com/Elucidation/ChessboardDetect/blob/master/FindChessboards.ipynb)
 
-<h2>Cutting out positions<h2>
+## Cutting out positions
   
   Our script (crop.py) does that.
   
